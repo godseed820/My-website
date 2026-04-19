@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Transformation | 300% Growth</title>
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Your Custom CSS -->
+    <link rel="stylesheet" href="project.css">
+</head>
+<body class="antialiased">
+    <!-- Animated Background -->
+    <div class="bg-mesh"></div>
+    <canvas id="particles-canvas"></canvas>
+    
+    <!-- Custom Cursor -->
+    <div class="cursor-glow hidden md:block" id="cursor"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-strong transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="font-display text-2xl font-bold gradient-text">DEV.PORTFOLIO</a>
+                
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#overview" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Overview</a>
+                    <a href="#impact" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Impact</a>
+                    <a href="#tech" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Technology</a>
+                    <a href="#process" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Process</a>
+                    <a href="#contact" class="px-6 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full text-sm font-medium hover:shadow-lg hover:shadow-indigo-500/30 transition-all transform hover:scale-105">Get in Touch</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden relative z-50" id="menu-btn">
+                    <div class="w-6 h-0.5 bg-white mb-1.5 transition-all" id="line1"></div>
+                    <div class="w-6 h-0.5 bg-white mb-1.5 transition-all" id="line2"></div>
+                    <div class="w-6 h-0.5 bg-white transition-all" id="line3"></div>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu fixed inset-0 bg-slate-900/95 backdrop-blur-xl md:hidden flex items-center justify-center" id="mobile-menu">
+            <div class="flex flex-col items-center gap-8">
+                <a href="#overview" class="text-2xl font-display font-medium text-white mobile-link">Overview</a>
+                <a href="#impact" class="text-2xl font-display font-medium text-white mobile-link">Impact</a>
+                <a href="#tech" class="text-2xl font-display font-medium text-white mobile-link">Technology</a>
+                <a href="#process" class="text-2xl font-display font-medium text-white mobile-link">Process</a>
+                <a href="#contact" class="text-2xl font-display font-medium gradient-text mobile-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0 grid-pattern opacity-30"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 py-20 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm font-medium text-indigo-300 float">
+                        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                        Available for new projects
+                    </div>
+                    
+                    <h1 class="font-display text-5xl md:text-7xl font-bold leading-tight">
+                        <span class="block text-white">E-Commerce</span>
+                        <span class="block gradient-text">Transformation</span>
+                        <span class="block text-white opacity-90">Specialist</span>
+                    </h1>
+                    
+                    <p class="text-xl text-gray-400 max-w-lg leading-relaxed">
+                        Designed and implemented a cutting-edge website for a large online retailer, 
+                        delivering a <span class="text-white font-semibold">300% increase in sales</span> through 
+                        strategic UX optimization and performance engineering.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#impact" class="group px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full font-semibold text-white hover:shadow-2xl hover:shadow-indigo-500/40 transition-all transform hover:scale-105 flex items-center gap-2">
+                            View Results
+                            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                        <a href="#tech" class="px-8 py-4 glass rounded-full font-semibold text-white hover:bg-white/10 transition-all">
+                            Tech Stack
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center gap-6 pt-4">
+                        <div class="flex -space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 border-2 border-slate-900 flex items-center justify-center text-xs font-bold">JS</div>
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-orange-400 to-red-600 border-2 border-slate-900 flex items-center justify-center text-xs font-bold">HTML</div>
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 border-2 border-slate-900 flex items-center justify-center text-xs font-bold">CSS</div>
+                        </div>
+                        <span class="text-sm text-gray-400">Core Technologies</span>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-3xl blur-3xl opacity-20 animate-pulse"></div>
+                    <div class="relative glass rounded-3xl p-8 float-delayed">
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400 text-sm">Sales Growth</span>
+                                <span class="text-green-400 text-sm font-bold">+300%</span>
+                            </div>
+                            <div class="h-48 flex items-end gap-3">
+                                <div class="flex-1 bg-slate-700/50 rounded-t-lg relative group">
+                                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-indigo-600 to-indigo-400 rounded-t-lg transition-all duration-1000 h-[30%] group-hover:h-[35%]"></div>
+                                    <div class="absolute -top-8 left-1/2 -translate-x-1/2 text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">Before</div>
+                                </div>
+                                <div class="flex-1 bg-slate-700/50 rounded-t-lg relative group">
+                                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-purple-600 to-pink-400 rounded-t-lg transition-all duration-1000 h-[100%] group-hover:h-[105%]"></div>
+                                    <div class="absolute -top-8 left-1/2 -translate-x-1/2 text-xs text-white font-bold">After</div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-3 gap-4 text-center">
+                                <div class="glass rounded-xl p-3">
+                                    <div class="text-2xl font-bold text-white">2.5s</div>
+                                    <div class="text-xs text-gray-400">Load Time</div>
+                                </div>
+                                <div class="glass rounded-xl p-3">
+                                    <div class="text-2xl font-bold text-white">99.9%</div>
+                                    <div class="text-xs text-gray-400">Uptime</div>
+                                </div>
+                                <div class="glass rounded-xl p-3">
+                                    <div class="text-2xl font-bold text-white">4.8★</div>
+                                    <div class="text-xs text-gray-400">Rating</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute -top-6 -right-6 glass rounded-2xl p-4 float hidden md:block">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center">
+                                <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-white">300%</div>
+                                <div class="text-xs text-gray-400">Revenue Growth</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 reveal">
+                <span class="inline-block px-4 py-2 rounded-full glass text-indigo-300 text-sm font-medium mb-4">Measurable Results</span>
+                <h2 class="font-display text-4xl md:text-6xl font-bold mb-6">
+                    <span class="gradient-text-2">Transformative Impact</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    Data-driven improvements that revolutionized the online retail experience
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+                <div class="glass rounded-2xl p-8 text-center tilt-card reveal" data-tilt>
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-number text-5xl font-bold text-white mb-2" data-target="300">0</div>
+                    <div class="text-green-400 font-semibold mb-1">%</div>
+                    <div class="text-gray-400">Sales Increase</div>
+                </div>
+                
+                <div class="glass rounded-2xl p-8 text-center tilt-card reveal" data-tilt>
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-blue-400 to-indigo-600 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-number text-5xl font-bold text-white mb-2" data-target="65">0</div>
+                    <div class="text-blue-400 font-semibold mb-1">%</div>
+                    <div class="text-gray-400">Faster Load</div>
+                </div>
+                
+                <div class="glass rounded-2xl p-8 text-center tilt-card reveal" data-tilt>
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-purple-400 to-pink-600 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-number text-5xl font-bold text-white mb-2" data-target="45">0</div>
+                    <div class="text-purple-400 font-semibold mb-1">%</div>
+                    <div class="text-gray-400">User Retention</div>
+                </div>
+                
+                <div class="glass rounded-2xl p-8 text-center tilt-card reveal" data-tilt>
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-orange-400 to-red-600 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-number text-5xl font-bold text-white mb-2" data-target="99">0</div>
+                    <div class="text-orange-400 font-semibold mb-1">.9%</div>
+                    <div class="text-gray-400">Uptime</div>
+                </div>
+            </div>
+            
+            <div class="glass rounded-3xl p-8 md:p-12 reveal">
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="font-display text-2xl font-bold mb-6">Performance Metrics</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-400">Page Load Speed</span>
+                                    <span class="text-white font-semibold">0.8s</span>
+                                </div>
+                                <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-green-400 to-emerald-500 rounded-full" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-400">Mobile Optimization</span>
+                                    <span class="text-white font-semibold">98/100</span>
+                                </div>
+                                <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full" style="width: 98%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-400">SEO Score</span>
+                                    <span class="text-white font-semibold">95/100</span>
+                                </div>
+                                <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-purple-400 to-pink-500 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-400">Accessibility</span>
+                                    <span class="text-white font-semibold">100/100</span>
+                                </div>
+                                <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-orange-400 to-red-500 rounded-full" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-2xl"></div>
+                        <div class="relative glass rounded-2xl p-6 h-full flex flex-col justify-center">
+                            <blockquote class="text-xl md:text-2xl font-light italic text-gray-300 mb-6">
+                                "The new website didn't just meet our expectations—it completely transformed our digital presence and directly contributed to our record-breaking sales quarter."
+                            </blockquote>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-400 to-purple-600 flex items-center justify-center text-white font-bold">JD</div>
+                                <div>
+                                    <div class="font-semibold text-white">John Doe</div>
+                                    <div class="text-sm text-gray-400">CEO, RetailCorp</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section id="tech" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 reveal">
+                <span class="inline-block px-4 py-2 rounded-full glass text-cyan-300 text-sm font-medium mb-4">Built With</span>
+                <h2 class="font-display text-4xl md:text-6xl font-bold mb-6">
+                    <span class="gradient-text">Technology Stack</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    Modern web technologies engineered for scale, performance, and user experience
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="tech-card glass rounded-3xl p-8 reveal group">
+                    <div class="relative mb-8">
+                        <div class="absolute inset-0 bg-orange-500/20 rounded-2xl blur-xl group-hover:bg-orange-500/30 transition-all"></div>
+                        <div class="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+                            <svg class="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-3 text-white">HTML5</h3>
+                    <p class="text-gray-400 mb-6">Semantic markup ensuring accessibility, SEO optimization, and clean structure for maximum performance.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-full bg-orange-500/10 text-orange-300 text-xs">Semantic</span>
+                        <span class="px-3 py-1 rounded-full bg-orange-500/10 text-orange-300 text-xs">SEO</span>
+                        <span class="px-3 py-1 rounded-full bg-orange-500/10 text-orange-300 text-xs">Accessible</span>
+                    </div>
+                </div>
+                
+                <div class="tech-card glass rounded-3xl p-8 reveal group">
+                    <div class="relative mb-8">
+                        <div class="absolute inset-0 bg-blue-500/20 rounded-2xl blur-xl group-hover:bg-blue-500/30 transition-all"></div>
+                        <div class="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center">
+                            <svg class="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-3 text-white">CSS3</h3>
+                    <p class="text-gray-400 mb-6">Advanced styling with Flexbox, Grid, animations, and custom properties for responsive, beautiful interfaces.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-300 text-xs">Flexbox</span>
+                        <span class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-300 text-xs">Grid</span>
+                        <span class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-300 text-xs">Animations</span>
+                    </div>
+                </div>
+                
+                <div class="tech-card glass rounded-3xl p-8 reveal group">
+                    <div class="relative mb-8">
+                        <div class="absolute inset-0 bg-yellow-500/20 rounded-2xl blur-xl group-hover:bg-yellow-500/30 transition-all"></div>
+                        <div class="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
+                            <svg class="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.625-1.065-2.805-1.035-.735.015-1.44.195-2.04.585-.84.555-1.215 1.395-1.155 2.43.045.795.45 1.44 1.185 1.86.585.345 1.215.585 1.785.795.645.225 1.23.48 1.47.99.195.435.12.96-.24 1.29-.27.27-.72.405-1.185.375-.825-.045-1.29-.42-1.65-1.005-.645.39-.645.39-1.425.855.195.48.48.885.84 1.215 1.02.945 2.535 1.215 3.93.795 1.08-.33 1.785-1.095 1.995-2.25.045-.645-.045-1.245-.405-1.77zm-6.42-5.535c-1.47-.045-2.85-.96-3.36-2.34-.36-1.02-.315-2.25.165-3.27.585-1.215 1.74-1.875 3.075-1.86 1.38.015 2.535.705 3.09 1.86.48 1.005.495 2.205.135 3.255-.525 1.41-1.86 2.385-3.375 2.385l-.36-.03zm-2.655-3.24c-.075 1.1.51 2.115 1.44 2.49.945.39 2.055.135 2.625-.63.585-.795.54-1.92-.105-2.655-.63-.72-1.71-.93-2.595-.525-.915.405-1.365 1.32-1.365 2.325v-.005z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-3 text-white">JavaScript</h3>
+                    <p class="text-gray-400 mb-6">Dynamic functionality with ES6+, async operations, DOM manipulation, and modern frameworks for interactivity.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-300 text-xs">ES6+</span>
+                        <span class="px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-300 text-xs">Async</span>
+                        <span class="px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-300 text-xs">DOM</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 glass rounded-3xl p-8 reveal">
+                <h3 class="font-display text-2xl font-bold mb-8 text-center">Additional Tools & Technologies</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    <div class="glass rounded-xl p-4 text-center hover:bg-white/5 transition-colors cursor-pointer group">
+                        <div class="text-2xl mb-2 group-hover:scale-110 transition-transform">📦</div>
+                        <div class="text-sm text-gray-300">Webpack</div>
+                    </div>
+                    <div class="glass rounded-xl p-4 text-center hover:bg-white/5 transition-colors cursor-pointer group">
+                        <div class="text-2xl mb-2 group-hover:scale-110 transition-transform">🎨</div>
+                        <div class="text-sm text-gray-300">Sass</div>
+                    </div>
+                    <div class="glass rounded-xl p-4 text-center hover:bg-white/5 transition-colors cursor-pointer group">
+                        <div class="text-2xl mb-2 group-hover:scale-110 transition-transform">⚡</div>
+                        <div class="text-sm text-gray-300">Vite</div>
+                    </div>
+                    <div class="glass rounded-xl p-4 text-center hover:bg-white/5 transition-colors cursor-pointer group">
+                        <div class="text-2xl mb-2 group-hover:scale-110 transition-transform">🔧</div>
+                        <div class="text-sm text-gray-300">Git</div>
+                    </div>
+                    <div class="glass rounded-xl p-4 text-center hover:bg-white/5 transition-colors cursor-pointer group">
+                        <div class="text-2xl mb-2 group-hover:scale-110 transition-transform">🧪</div>
+                        <div class="text-sm text-gray-300">Jest</div>
+                    </div>
+                    <div class="glass rounded-xl p-4 text-center hover:bg-white/5 transition-colors cursor-pointer group">
+                        <div class="text-2xl mb-2 group-hover:scale-110 transition-transform">🚀</div>
+                        <div class="text-sm text-gray-300">CI/CD</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 reveal">
+                <span class="inline-block px-4 py-2 rounded-full glass text-purple-300 text-sm font-medium mb-4">Methodology</span>
+                <h2 class="font-display text-4xl md:text-6xl font-bold mb-6">
+                    <span class="gradient-text-2">Development Process</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    A systematic approach to delivering high-performance e-commerce solutions
+                </p>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 timeline-line rounded-full hidden md:block"></div>
+                
+                <div class="space-y-16">
+                    <div class="relative flex flex-col md:flex-row items-center reveal">
+                        <div class="flex-1 md:text-right md:pr-12 mb-8 md:mb-0">
+                            <div class="glass rounded-2xl p-6 inline-block">
+                                <h3 class="font-display text-xl font-bold mb-2 text-white">Discovery & Analysis</h3>
+                                <p class="text-gray-400">Deep dive into user behavior, competitor analysis, and technical requirements gathering.</p>
+                            </div>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold z-10 border-4 border-slate-900">1</div>
+                        <div class="flex-1 md:pl-12 hidden md:block"></div>
+                    </div>
+                    
+                    <div class="relative flex flex-col md:flex-row items-center reveal">
+                        <div class="flex-1 md:pr-12 hidden md:block"></div>
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center text-white font-bold z-10 border-4 border-slate-900">2</div>
+                        <div class="flex-1 md:pl-12 mt-8 md:mt-0">
+                            <div class="glass rounded-2xl p-6 inline-block">
+                                <h3 class="font-display text-xl font-bold mb-2 text-white">UX/UI Design</h3>
+                                <p class="text-gray-400">Wireframing, prototyping, and creating pixel-perfect designs focused on conversion optimization.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative flex flex-col md:flex-row items-center reveal">
+                        <div class="flex-1 md:text-right md:pr-12 mb-8 md:mb-0">
+                            <div class="glass rounded-2xl p-6 inline-block">
+                                <h3 class="font-display text-xl font-bold mb-2 text-white">Development</h3>
+                                <p class="text-gray-400">Clean, semantic HTML, modern CSS architecture, and optimized JavaScript implementation.</p>
+                            </div>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-pink-500 to-orange-600 flex items-center justify-center text-white font-bold z-10 border-4 border-slate-900">3</div>
+                        <div class="flex-1 md:pl-12 hidden md:block"></div>
+                    </div>
+                    
+                    <div class="relative flex flex-col md:flex-row items-center reveal">
+                        <div class="flex-1 md:pr-12 hidden md:block"></div>
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-orange-500 to-red-600 flex items-center justify-center text-white font-bold z-10 border-4 border-slate-900">4</div>
+                        <div class="flex-1 md:pl-12 mt-8 md:mt-0">
+                            <div class="glass rounded-2xl p-6 inline-block">
+                                <h3 class="font-display text-xl font-bold mb-2 text-white">Testing & Optimization</h3>
+                                <p class="text-gray-400">Performance testing, A/B testing, and continuous optimization for maximum conversion rates.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-900/20 to-transparent"></div>
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <div class="glass rounded-3xl p-12 md:p-16 reveal">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+                    Ready to <span class="gradient-text">Transform</span> Your Business?
+                </h2>
+                <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+                    Let's discuss how we can achieve similar results for your e-commerce platform.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="mailto:contact@example.com" class="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full font-semibold text-white hover:shadow-2xl hover:shadow-indigo-500/40 transition-all transform hover:scale-105">
+                        Start a Project
+                    </a>
+                    <a href="#" class="px-8 py-4 glass rounded-full font-semibold text-white hover:bg-white/10 transition-all">
+                        View Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="font-display text-2xl font-bold gradient-text">DEV.PORTFOLIO</div>
+                <div class="flex gap-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                    </a>
+                </div>
+                <div class="text-gray-500 text-sm">
+                    © 2024 All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Your Custom JavaScript -->
+    <script src="project.js"></script>
+</body>
+</html>
